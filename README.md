@@ -17,4 +17,12 @@ Creating the CDN antifingerprinting server
    3. sudo cp danted.conf /etc/
   
 2. Install BIND9 DNS server
-   1. sudo apt-get install 
+   1. sudo apt-get install bind9 bind9utils dnsutils
+   2. Change the internal ip address block 10.42.0.0/24 of named.conf.options in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
+   3. sudo cp bind/named.conf.options /etc/bind/
+  
+3. Install SQUID caching server
+   1. sudo apt-get install squid
+   2. Change "acl localnet src" address 10.42.0.0/24 (use Ctrl+F to find) in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
+   3. Change "http_port 10.42.0.1:3128" in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
+   4. sudo cp squid/squid.conf /etc/squid
