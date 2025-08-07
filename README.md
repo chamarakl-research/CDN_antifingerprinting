@@ -26,3 +26,24 @@ Creating the CDN antifingerprinting server
    2. Change "acl localnet src" address 10.42.0.0/24 (use Ctrl+F to find) in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
    3. Change "http_port 10.42.0.1:3128" in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
    4. sudo cp squid/squid.conf /etc/squid
+
+4. Install PRIVOXY ad blocker
+   1. sudo apt-get install privoxy
+   2. Change "listen-address 10.42.0.1:8118" in config in the github repostiry to match your internal network interface IP address of the DEBIAN server (CDN server for fingerprinting)
+   3. sudo cp privoxy/config /etc/privoxy/config
+  
+5. Install NGINX reverse proxy
+   1. sudo apt-get install nginx
+   2. sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/private_cache_server.key -out /etc/ssl/certs/public_cache_server_certificates.crt -subj "/CN=cache_server"
+   3. change the host file with the entry cache_server with the ipaddress of the internal network interface
+  
+6. Install VARNISH HTTP accelerator
+   1. sudo apt-get install varnish
+   2. change the internal ip address of varnish/default.vcl to your internal interface ip address
+   3. sudo cp varnish/default.vcl /etc/varnish/
+   4. sudo cp systemd/system/varnish.service to /lib/systemd/system/varnish.service
+
+7. Install HITCH HTTPS accelerator
+   1. sudo apt-get install hitch
+   2. sudo cp hitch/hitch.conf /etc/hitch
+   3. create user "hitch" belonging to group "hitch"
