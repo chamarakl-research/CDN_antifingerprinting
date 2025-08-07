@@ -54,4 +54,5 @@ Creating the CDN antifingerprinting server
 8. Start CDN antifingerprinting server with
    1. sudo systemctl restart danted bind9 privoxy squid nginx varnish 
    2. sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
-   3. Configure proxy in windows computer 
+   3. Configure proxy in windows computer
+   4. Download torbrowser https://www.torproject.org/download/ and use torbrowser only. Other browsers will also show a reduction in fingerprint. 
