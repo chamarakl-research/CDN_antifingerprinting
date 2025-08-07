@@ -1528,6 +1528,9 @@ enable-proxy-authentication-forwarding 0
 #
 #      forwarded-connect-retries 1
 #
+forward-socks4 / cache_server:1080 .
+forward-socks4a / cache_server:1080 .
+forward-socks5 / cache_server:1080 .
 forwarded-connect-retries  0
 #
 #  6. MISCELLANEOUS
