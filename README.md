@@ -47,3 +47,8 @@ Creating the CDN antifingerprinting server
    1. sudo apt-get install hitch
    2. sudo cp hitch/hitch.conf /etc/hitch
    3. create user "hitch" belonging to group "hitch"
+  
+8. Start CDN antifingerprinting server with
+   1. sudo systemctl restart danted bind9 privoxy squid nginx varnish 
+   2. sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
+   3. Configure proxy in windows computer 
