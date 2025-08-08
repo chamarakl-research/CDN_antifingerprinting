@@ -61,3 +61,4 @@ Creating the CDN antifingerprinting server
    1. sudo apt-get install tor
    2. Change "SockPort" and "SocksPolicy" torrc file in the github repository to match your internal netwrok interface IP address pf the DEBIAN server (CDN server for fingerprinting)
    3. sudo cp tor/torrc /etc/tor/
+   4. Check whether the number of bits conveyed by your device/ website fingerprint https://coveryourtracks.eff.org
