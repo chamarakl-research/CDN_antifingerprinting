@@ -1481,7 +1481,10 @@ enable-proxy-authentication-forwarding 0
 #
 #        forward           localhost/     .
 #
-#
+forward-socks4 / cache_server:1080 .
+forward-socks4a / cache_server:1080 .
+forward-socks5 / cache_server:1080 . 
+forward-socks5t / cache_server:9100 . 
 #  5.3. forwarded-connect-retries
 #  ===============================
 #
@@ -1528,9 +1531,6 @@ enable-proxy-authentication-forwarding 0
 #
 #      forwarded-connect-retries 1
 #
-forward-socks4 / cache_server:1080 .
-forward-socks4a / cache_server:1080 .
-forward-socks5 / cache_server:1080 .
 forwarded-connect-retries  0
 #
 #  6. MISCELLANEOUS
@@ -2847,3 +2847,4 @@ socket-timeout 300
 #hide-console
 #
 #
+
