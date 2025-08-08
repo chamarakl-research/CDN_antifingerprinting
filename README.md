@@ -55,4 +55,9 @@ Creating the CDN antifingerprinting server
    1. sudo systemctl restart danted bind9 privoxy squid nginx varnish 
    2. sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
    3. Configure proxy in windows computer
-   4. Download torbrowser https://www.torproject.org/download/ and use torbrowser only. Other browsers will also show a reduction in fingerprint. 
+   4. Download torbrowser https://www.torproject.org/download/ and use torbrowser only. Other browsers will also show a reduction in fingerprint.
+  
+9. Enabling TOR service in the CDN antifingerprinting server (Creative Commons Attribution 3.0 United States License) (Optional) 
+   1. sudo apt-get install tor
+   2. Change "SockPort" and "SocksPolicy" torrc file in the github repository to match your internal netwrok interface IP address pf the DEBIAN server (CDN server for fingerprinting)
+   3. sudo cp tor/torrc /etc/tor/
