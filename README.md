@@ -62,4 +62,5 @@ Creating the CDN antifingerprinting server
    2. Change "SockPort" and "SocksPolicy" torrc file in the github repository to match your internal netwrok interface IP address pf the DEBIAN server (CDN server for fingerprinting)
    3. sudo cp tor/torrc /etc/tor/
    4. Update privoxy /etc/privoxy/config file with "forward-socks5t / cache_server:9100 ."
-   5. Check whether the number of bits conveyed by your device/ website fingerprint https://coveryourtracks.eff.org
+   5. Check the number of bits conveyed by your device/ website fingerprint using https://coveryourtracks.eff.org (smaller the better)
+  
