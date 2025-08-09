@@ -63,6 +63,8 @@ Creating the CDN antifingerprinting server
    3. sudo cp tor/torrc /etc/tor/
    4. Update privoxy /etc/privoxy/config file with "forward-socks5t / cache_server:9100 ."
    5. Check the number of bits conveyed by your device/ website fingerprint using https://coveryourtracks.eff.org (smaller the better)
+   6. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish
+   7.                           -> sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
   
 10. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
