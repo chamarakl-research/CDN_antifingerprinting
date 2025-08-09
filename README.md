@@ -65,5 +65,5 @@ Creating the CDN antifingerprinting server
    5. Check the number of bits conveyed by your device/ website fingerprint using https://coveryourtracks.eff.org (smaller the better)
   
 10. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
-    1. *.windowsupdate.com;*.microsoft.com;*.windows.com
+    1. *.windowsupdate.com; *.microsoft.com; *.windows.com
   
