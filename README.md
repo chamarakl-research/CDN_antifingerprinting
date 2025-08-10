@@ -108,9 +108,11 @@ Creating the CDN antifingerprinting server
     2. copy github repository client.conf file to /etc/openvpn/ in WSL ubuntu client
     3. sudo systemctl restart openvpn@client
     
-12. NEW  ---> RANDOM fingerprint with Mullvad browser tor service in WSL ubuntu client and anti fingerprinting CDN DEBIAN server (PLEASE TEST) <-----
-    1. Setting up proxychains in WSL ubuntu client  -> sudo apt-get install proxychains4
-    2. cp etc/proxychains.conf from github repository to /etc/ in WSL ubuntu client 
+12. NEW  ---> RANDOM fingerprint with Mullvad browser + tor service in WSL ubuntu client and anti fingerprinting CDN DEBIAN server (PLEASE TEST) <-----
+    1. Setting up proxychains in WSL ubuntu client  -> sudo apt-get install proxychains4 tor
+    2. cp etc/proxychains.conf from github repository to /etc/ in WSL ubuntu client
+    3. sudo systemctl restart openvpn@client tor
+    4. proxychains mullvad-browser
    
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
