@@ -66,7 +66,7 @@ Creating the CDN antifingerprinting server
    6. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish
    7.                           -> sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
 
-10. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system
+10. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system (Optional) 
     1. Download -> https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
     2. Install ubuntu wsl using powershell -> wsl --install --from-file "<path>\ubuntu-24.04.2-wsl-amd64.wsl"
     3. Run WSL -> wsl
