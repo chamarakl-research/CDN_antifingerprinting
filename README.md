@@ -65,7 +65,16 @@ Creating the CDN antifingerprinting server
    5. Check the number of bits conveyed by your device/ website fingerprint using https://coveryourtracks.eff.org (smaller the better)
    6. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish
    7.                           -> sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
-  
-10. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
+
+10. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system
+    1. Download -> https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
+    2. Install ubuntu wsl using powershell -> wsl --install --from-file "<path>\ubuntu-24.04.2-wsl-amd64.wsl"
+    3. Run WSL -> wsl
+    4. Download torbrowser -> wget https://dist.torproject.org/torbrowser/14.5.5/tor-browser-linux-x86_64-14.5.5.tar
+    5. Extract -> tar -xvf tor-browser-linux-x86_64-14.5.5.tar
+    6. run torbrowser -> cd tor-browser -> ./start-tor-browser.desktop
+    7. You will see in https://coveryourtracks.eff.org that the number bits used to represent your device/website fingerprint has reduced 
+
+A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
   
