@@ -99,9 +99,10 @@ Creating the CDN antifingerprinting server
     20. ./easyrsa sign-req client myclient1  (myclient1 is the name given in /etc/hosts file with internal interface ip address of USL ubuntu client)
 
    WSL Ubuntu client 
-    22. cp pki/ca.crt pki/issued/myclient1.crt pki/private/myclient1.key /etc/openvpn/ta.key from anti fingerprinting CDN DEBIAN server to WSL ubuntu client (use scp to copy and chown to change ownership of files )
-    23. copy github repository client.conf file to /etc/openvpn/ in WSL ubuntu client
-    24. sudo systemctl start openvpn@server
+   
+    1. cp pki/ca.crt pki/issued/myclient1.crt pki/private/myclient1.key /etc/openvpn/ta.key from anti fingerprinting CDN DEBIAN server to WSL ubuntu client (use scp to copy and chown to change ownership of files )
+    2. copy github repository client.conf file to /etc/openvpn/ in WSL ubuntu client
+    3. sudo systemctl start openvpn@server
     
 
    
