@@ -77,6 +77,8 @@ Creating the CDN antifingerprinting server
     8. To get sound install in WSL -> sudo apt-get install pulseaudio
 
 11. To further reduce fingerprint openvpn connection can be setup between WSL emulated system and anti fingerprinting CDN DEBIAN server internal interface (Optional -Advanced)
+    This is based on the assumption that device\website fingerprinter use Large Language Models (LLM) to model the temproral packet transmissions relationship in the ISP backbone
+    We use openvpn with UDP beetween WSL ubuntu client and anti fingerprinting CDN DEBIAN server so that the packet sizes are random 
     1. Install in anitifingerprinting CDN -> sudo apt-get install openvpm easy-rsa
     2. sudo make-cadir /etc/openvpn/easy-rsa
     3. sudo su
@@ -94,15 +96,16 @@ Creating the CDN antifingerprinting server
     15. sudo sysctl -p /etc/sysctl.conf
     16. sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf
     17. copy github repository server.conf file to /etc/openvpn/ (Set internal ip address 10.42.0.1 to match your antifingerprinting CDN DEBIAN server internal ip address)
-    18. sudo systemctl start openvpn@server     
-    19. ./easyrsa gen-req myclient1 nopass  (myclient1 is the name given in /etc/hosts file with internal interface ip address of WSL ubuntu client)
-    20. ./easyrsa sign-req client myclient1  (myclient1 is the name given in /etc/hosts file with internal interface ip address of USL ubuntu client)
+    18. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server
+    19. sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf   
+    20. ./easyrsa gen-req myclient1 nopass  (myclient1 is the name given in /etc/hosts file with internal interface ip address of WSL ubuntu client)
+    21. ./easyrsa sign-req client myclient1  (myclient1 is the name given in /etc/hosts file with internal interface ip address of USL ubuntu client)
 
    WSL Ubuntu client 
    
     1. cp pki/ca.crt pki/issued/myclient1.crt pki/private/myclient1.key /etc/openvpn/ta.key from anti fingerprinting CDN DEBIAN server to WSL ubuntu client (use scp to copy and chown to change ownership of files )
     2. copy github repository client.conf file to /etc/openvpn/ in WSL ubuntu client
-    3. sudo systemctl start openvpn@server
+    3. sudo systemctl restart openvpn@client
     
 
    
