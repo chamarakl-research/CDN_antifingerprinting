@@ -74,7 +74,7 @@ Creating the CDN antifingerprinting server
     5. Extract -> tar -xvf tor-browser-linux-x86_64-14.5.5.tar
     6. run torbrowser -> cd tor-browser -> ./start-tor-browser.desktop
     7. You will see in https://coveryourtracks.eff.org that the number bits used to represent your device/website fingerprint has reduced
-    8. To get sound install in WSL -> sudop apt-get install pulseaudio
+    8. To get sound install in WSL -> sudo apt-get install pulseaudio
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
