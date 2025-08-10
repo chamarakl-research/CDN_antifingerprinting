@@ -77,7 +77,8 @@ Creating the CDN antifingerprinting server
     8. To get sound install in WSL -> sudo apt-get install pulseaudio
 
 11. To further reduce fingerprint openvpn connection can be setup between WSL emulated system and anti fingerprinting CDN DEBIAN server internal interface (Optional -Advanced)
-    This is based on the assumption that device\website fingerprinter use Large Language Models (LLM) to model the temproral packet transmissions relationship in the ISP backbone
+    
+    This is based on the assumption that device\website fingerprinter use Large Language Models (LLM) to model the temporal packet transmissions relationship in the ISP backbone
     We use openvpn with UDP beetween WSL ubuntu client and anti fingerprinting CDN DEBIAN server so that the packet sizes are random 
     1. Install in anitifingerprinting CDN -> sudo apt-get install openvpm easy-rsa
     2. sudo make-cadir /etc/openvpn/easy-rsa
