@@ -113,6 +113,7 @@ Creating the CDN antifingerprinting server
     2. cp etc/proxychains.conf from github repository to /etc/ in WSL ubuntu client
     3. sudo systemctl restart openvpn@client tor
     4. proxychains mullvad-browser --detach
+    5. In browserleaks.com the number of adblockers keep changing and the DNS ip addresses are not localized to a region 
    
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
