@@ -76,6 +76,36 @@ Creating the CDN antifingerprinting server
     7. You will see in https://coveryourtracks.eff.org that the number bits used to represent your device/website fingerprint has reduced
     8. To get sound install in WSL -> sudo apt-get install pulseaudio
 
+11. To further reduce fingerprint openvpn connection can be setup between WSL emulated system and anti fingerprinting CDN DEBIAN server internal interface (Optional -Advanced)
+    1. Install in anitifingerprinting CDN -> sudo apt-get install openvpm easy-rsa
+    2. sudo make-cadir /etc/openvpn/easy-rsa
+    3. sudo su
+    4. cd /etc/openvpn/easy-rsa
+    5. ./easyrsa init-pki
+    6. ./easyrsa build-ca
+    7. ./easyrsa gen-req cache_server nopass (cache_server is the name given in /etc/hosts file with internal interface ip address of anti fingerprinting CDN DEBIAN server)
+    8. ./easyrsa gen-dh
+    9. ./easyrsa sign-req server cache_server (cache_server is the name given in /etc/hosts file with internal interface ip address of anti fingerprinting CDN DEBIAN server)
+    10. cp pki/dh.pem pki/ca.crt pki/issued/cache_server.crt pki/private/cache_server.key /etc/openvpn/
+    11. Ctrl + D (exit sudo)
+    12. cd /etc/open
+    13. sudo openvpn --genkey --secret ta.key
+    14. sudo nano /etc/sysctl.conf and set net.ipv4.ip_forward=1
+    15. sudo sysctl -p /etc/sysctl.conf
+    16. sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf
+    17. copy github repository server.conf file to /etc/openvpn/ (Set internal ip address 10.42.0.1 to match your antifingerprinting CDN DEBIAN server internal ip address)
+    18. sudo systemctl start openvpn@server     
+    19. ./easyrsa gen-req myclient1 nopass  (myclient1 is the name given in /etc/hosts file with internal interface ip address of WSL ubuntu client)
+    20. ./easyrsa sign-req client myclient1  (myclient1 is the name given in /etc/hosts file with internal interface ip address of USL ubuntu client)
+
+   WSL Ubuntu client 
+    22. cp pki/ca.crt pki/issued/myclient1.crt pki/private/myclient1.key /etc/openvpn/ta.key from anti fingerprinting CDN DEBIAN server to WSL ubuntu client (use scp to copy and chown to change ownership of files )
+    23. copy github repository client.conf file to /etc/openvpn/ in WSL ubuntu client
+    24. sudo systemctl start openvpn@server
+    
+
+   
+
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
   
