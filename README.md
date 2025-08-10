@@ -114,3 +114,4 @@ Creating the CDN antifingerprinting server
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
   
+B. It is possible to use Mullvad browser (https://mullvad.net) without the VPN service with the anti fingerprinting CDN and get the same level as privacy as the Tor browser with anti fingerprinting CDN 
