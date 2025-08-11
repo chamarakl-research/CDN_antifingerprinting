@@ -114,9 +114,12 @@ Creating the CDN antifingerprinting server
     3. sudo systemctl restart openvpn@client tor
     4. proxychains mullvad-browser --detach
     5. In browserleaks.com the number of adblockers keep changing and the DNS ip addresses are not localized to a region
-    6. Open the following website in TWO PC systems with Mullvad browser + tor service WSL ubuntu; https://fingerprintjs.github.io/fingerprintjs/ with the same anti fingerprinting CDN DEBIAN server.
+   
+12a. Test the anti fingerprinting framework (Upto point 12)
+    1. It seems there are two methods of doing fingerprinting -> use ip address and device/browser detatils or device/browser details only (It seems anti fingerprinting framework is irritating some, HA HA HA)
+    2. This website uses only device/browser details ===> Open the following website in TWO PC systems with Mullvad browser + tor service WSL ubuntu; https://fingerprintjs.github.io/fingerprintjs/ with the same anti fingerprinting CDN DEBIAN server.
        1. I got the SAME fingerprint for the two PCs indicating that the fingerprint is not unique and the proposed anti fingerprinting framework is working as expected
-    7. Open the following website https://www.thumbmarkjs.com/resources/demo or https://priyangsubanerjee.github.io/device-fingerprinting/ in an anti fingerprinting framework and refresh to see the device/website fingerprint change showing that it is random. 
+    2. These websites use ip addresses and device/browser details ===> Open the following website https://www.thumbmarkjs.com/resources/demo or https://priyangsubanerjee.github.io/device-fingerprinting/ in an anti fingerprinting framework and refresh to see the device/website fingerprint change showing that it is random. 
    
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
