@@ -116,6 +116,7 @@ Creating the CDN antifingerprinting server
     5. In browserleaks.com the number of adblockers keep changing and the DNS ip addresses are not localized to a region
     6. Open the following website in TWO PC systems with Mullvad browser + tor service WSL ubuntu; https://fingerprintjs.github.io/fingerprintjs/ with the same anti fingerprinting CDN DEBIAN server.
        1. I got the SAME fingerprint for the two PCs indicating that the fingerprint is not unique and the proposed anti fingerprinting framework is working as expected
+    7. Open the following website https://www.thumbmarkjs.com/resources/demo in an anti fingerprinting framework and refresh to see the device/website fingerprint change showing that it is random. 
    
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
