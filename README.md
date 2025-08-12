@@ -49,7 +49,7 @@
    1. ```sudo apt-get install squid```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/squid/squid.conf```
    3. **Line1334:** ```acl localnet src 10.42.0.0/24``` *Change NUC LAN interface IP subnetwork to match your configuration* 
-   4. **Line2106:** ```http_port 10.42.0.1:3128`` *Change NUC LAN interface IP address to match your configuration*
+   4. **Line2106:** ```http_port 10.42.0.1:3128``` *Change NUC LAN interface IP address to match your configuration*
    5. ```sudo cp ~/CDN_antifingerprinting/etc/squid/squid.conf /etc/squid/```
 
 ### 4. Install PRIVOXY ad blocker in NUC
