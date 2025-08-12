@@ -9,8 +9,8 @@
 
 ### IP addresses of the proposed system (Change to your requirement) 
 
-1. Your PCs subnetwork 10.42.0.0/24. Your PCs ipaddresses start from 10.42.0.2 - 10.42.0.254. CDN server (NUC) LAN interface ip address is 10.42.0.1
-2. Internet connection subnetwork 172.20.10.0/28 and the NUC internet interface ip address is 172.20.10.3
+1. *Your PCs subnetwork* 10.42.0.0/24. *Your PCs ipaddresses start from* 10.42.0.2 - 10.42.0.254. *CDN server (NUC) LAN interface ip address is* 10.42.0.1
+2. *Internet connection subnetwork* 172.20.10.0/28 *and the NUC internet interface ip address is* 172.20.10.3
 
 ### Clone software to your home directory (~) in NUC 
 1. ``` cd ~```
