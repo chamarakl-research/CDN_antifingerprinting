@@ -92,8 +92,8 @@
    4. ```cd /etc/openvpn/easy-rsa```
    5. ```./easyrsa init-pki```
    6. ```./easyrsa build-ca```
-   7. ```./easyrsa gen-req cache_server nopass``` cache_server is the entry which you gave in **/etc/hosts**
-   8. ```./easyrsa sign-req server cache_server``` cache_server is the entry which you gave in **/etc/hosts**
+   7. ```./easyrsa gen-req cache_server nopass``` *cache_server is the entry which you gave in* **/etc/hosts**
+   8. ```./easyrsa sign-req server cache_server``` *cache_server is the entry which you gave in* **/etc/hosts**
    9. ```cp pki/dh.pem pki/ca.crt pki/issued/cache_server.crt pki/private/cache_server.key /etc/openvpn/```
    10. ```Ctrl+D```
    11. ```cd /etc/openvpn```
@@ -106,8 +106,8 @@
    18. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/server.conf /etc/openvpn/```
    19. ```sudo su```
    20. ```cd /etc/openvpn/easy-rsa```
-   21. ```./easyrsa gen-req myclient1 nopass``` myclient1 is the entry which you gave in **/etc/hosts** in your WSL ubuntu 24.04 
-   22. ```./easyrsa sign-req client myclient1``` myclient1 is the entry which you gave in **/etc/hosts** in your WSL ubuntu 24.04
+   21. ```./easyrsa gen-req myclient1 nopass``` *myclient1 is the entry which you gave in* **/etc/hosts** *in your WSL ubuntu 24.04*
+   22. ```./easyrsa sign-req client myclient1``` *myclient1 is the entry which you gave in* **/etc/hosts** *in your WSL ubuntu 24.04*
    23. ```mkdir ~/CDN_antifingerprinting/client_cert```
    24. ```sudo cp /etc/openvpn/easy-rsa/pki/ca.crt ~/CDN_antifingerprinting/client_cert/```
    25. ```sudo cp /etc/openvpn/easy-rsa/pki/issued/myclient1.crt ~/CDN_antifingerprinting/client_cert/```
