@@ -64,7 +64,7 @@ Creating the CDN antifingerprinting server
    4. Update privoxy /etc/privoxy/config file with "forward-socks5t / cache_server:9100 ."
    5. Check the number of bits conveyed by your device/ website fingerprint using https://coveryourtracks.eff.org (smaller the better)
    6. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish
-   7.    sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
+   7. ->sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
 
 10. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system (Optional) 
     1. Download -> https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
