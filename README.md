@@ -12,10 +12,17 @@
 1. Your PCs subnetwork 10.42.0.0/24. Your PCs ipaddresses start from 10.42.0.2 - 10.42.0.254. CDN server (NUC) LAN interface ip address is 10.42.0.1
 2. Internet connection subnetwork 172.20.10.0/28 and the NUC internet interface ip address is 172.20.10.3
 
-### Clone software to your home directory (~)
-1. ``` git clone https://github.com/chamarakl-research/CDN_antifingerprinting.git```
-2. ```sudo nano /etc/hosts```
-3. Add ```cache_server <your NUC LAN interface ip address>```
+### Clone software to your home directory (~) in NUC 
+1. ``` cd ~```
+2. ``` git clone https://github.com/chamarakl-research/CDN_antifingerprinting.git```
+3. ```sudo nano /etc/hosts```
+4. Add ```cache_server <your NUC LAN interface ip address>```
+
+### In your PCs install Windows Subsystem for Linux (WSL)
+1. open powershell
+2. ```wsl```
+3. ```sudo nano /etc/hosts```
+4. Add ```myclient1 <your PCs LAN interface ip address>```
    
 ### 1. Install DANTE SOCKS server
    1. ```sudo apt-get install dante-server```
@@ -42,8 +49,9 @@
 ### 4. Install PRIVOXY ad blocker
    1. ```sudo apt-get install privoxy```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/privoxy/config```
-   3. Line794: ```listen-address  10.42.0.1:8118`` Change NUC LAN interface IP address to match your configuration 
-   4. ```sudo cp ~/CDN_antifingerprinting/etc/privoxy/config /etc/privoxy/```
+   3. Line794: ```listen-address  10.42.0.1:8118`` Change NUC LAN interface IP address to match your configuration
+   4. 
+   5. ```sudo cp ~/CDN_antifingerprinting/etc/privoxy/config /etc/privoxy/```
   
 ### 5. Install NGINX reverse proxy
    1. ```sudo apt-get install nginx```
@@ -69,22 +77,45 @@
    8. ```cat private_hitch.key public_hitch.crt > hitch.pem```
    9. ```sudo cp ~/CDN_antifingerprinting/hitch/hitch.pem /etc/hitch/```
   
-10. Start CDN antifingerprinting server with
-   1. sudo systemctl restart danted bind9 privoxy squid nginx varnish 
-   2. sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
-   3. Configure proxy in windows computer
-   4. Download torbrowser https://www.torproject.org/download/ and use torbrowser only. Other browsers will also show a reduction in fingerprint.
-  
-11. Enabling TOR service in the CDN antifingerprinting server (Creative Commons Attribution 3.0 United States License) (Optional) 
-   1. sudo apt-get install tor
-   2. Change "SockPort" and "SocksPolicy" torrc file in the github repository to match your internal netwrok interface IP address pf the DEBIAN server (CDN server for fingerprinting)
-   3. sudo cp tor/torrc /etc/tor/
-   4. Update privoxy /etc/privoxy/config file with "forward-socks5t / cache_server:9100 ."
-   5. Check the number of bits conveyed by your device/ website fingerprint using https://coveryourtracks.eff.org (smaller the better)
-   6. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish
-   7. ->sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf
+### 8. Enabling TOR service  (Creative Commons Attribution 3.0 United States License)
+   1. ```sudo apt-get install tor```
+   2. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc```
+   3. Line19 ```SocksPort 10.42.0.1:9100``` Change NUC LAN interface IP address to match your configuration
+   4. Line24 ```SocksPolicy accept 10.42.0.0/24``` Change NUC LAN interface subnetwork IP address to match your configuration
+   5. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc /etc/tor/```
 
-11. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system (Optional) 
+### 9. Install openvpn server 
+   1. ```sudo apt-get install openvpn easy-rsa```
+   2. ```sudo make-cadir /etc/openvpn/easy-rsa```
+   3. ```sudo su```
+   4. ```cd /etc/openvpn/easy-rsa```
+   5. ```./easyrsa init-pki```
+   6. ```./easyrsa build-ca```
+   7. ```./easyrsa gen-req cache_server nopass``` cache_server is the entry which you gave in **/etc/hosts**
+   8. ```./easyrsa sign-req server cache_server``` cache_server is the entry which you gave in **/etc/hosts**
+   9. ```cp pki/dh.pem pki/ca.crt pki/issued/cache_server.crt pki/private/cache_server.key /etc/openvpn/```
+   10. ```Ctrl+D```
+   11. ```cd /etc/openvpn```
+   12. ```sudo openvpn --genkey --secret ta.key```
+   13. ```sudo nano /etc/sysctl.conf```
+   14. Line28 remove **#** and enable ```net.ipv4.ip_forward=1```
+   15. ```sudo sysctl -p /etc/sysctl.conf```
+   16. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/server.conf```
+   17. Line25: ```local 10.42.0.1``` Change NUC LAN interface IP address to match your configuration
+   18. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/server.conf /etc/openvpn/```
+   19. ```sudo su```
+   20. ```cd /etc/openvpn/easy-rsa```
+   21. ```./easyrsa gen-req myclient1 nopass``` myclient1 is the entry which you gave in **/etc/hosts** in your WSL ubuntu 24.04 
+   22. ```./easyrsa sign-req client myclient1``` myclient1 is the entry which you gave in **/etc/hosts** in your WSL ubuntu 24.04
+   23. ```mkdir ~/CDN_antifingerprinting/client_cert```
+   24. ```sudo cp /etc/openvpn/easy-rsa/pki/ca.crt ~/CDN_antifingerprinting/client_cert/```
+   25. ```sudo cp /etc/openvpn/easy-rsa/pki/issued/myclient1.crt ~/CDN_antifingerprinting/client_cert/```
+   26. ```sudo cp /etc/openvpn/easy-rsa/pki/private/myclient1.key ~/CDN_antifingerprinting/client_cert/```
+   27. ```sudo cp /etc/openvpn/ta.key ~/CDN_antifingerprinting/client_cert/```
+   28. ```sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server```
+   29. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
+
+30. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system (Optional) 
     1. Download -> https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
     2. Install ubuntu wsl using powershell -> wsl --install --from-file "<path>\ubuntu-24.04.2-wsl-amd64.wsl"
     3. Run WSL -> wsl
@@ -94,7 +125,7 @@
     7. You will see in https://coveryourtracks.eff.org that the number bits used to represent your device/website fingerprint has reduced
     8. To get sound install in WSL -> sudo apt-get install pulseaudio
 
-12. To further reduce fingerprint openvpn connection can be setup between WSL emulated system and anti fingerprinting CDN DEBIAN server internal interface (Optional -Advanced)
+31. To further reduce fingerprint openvpn connection can be setup between WSL emulated system and anti fingerprinting CDN DEBIAN server internal interface (Optional -Advanced)
     
     This is based on the assumption that device\website fingerprinter use Large Language Models (LLM) to model the temporal packet transmission relationship in the ISP backbone
     We use openvpn with UDP beetween WSL ubuntu client and anti fingerprinting CDN DEBIAN server so that the packet sizes are random 
