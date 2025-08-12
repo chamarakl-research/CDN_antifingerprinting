@@ -138,17 +138,15 @@
 15. ```sudo systemctl restart openvpn@client tor```
 16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
 
-### 11. Test the anti fingerprinting framework (Upto point 12)
-    1. It seems there are three methods of doing fingerprinting
-      1. use ip address + device/browser detatils (random fingerprint)
-         1. https://www.thumbmarkjs.com/resources/demo => refresh the webpage in anti fingerprinting framework
-      2. device/browser details only (random fingerprint)
-         1. https://priyangsubanerjee.github.io/device-fingerprinting/ => refresh the webpage in anti fingerprinting framework
-      3. selected device/browser details to show that anti fingerprinting framework is not working (fingerprint which doesn't change accross different PC systems)
-         1. https://fingerprintjs.github.io/fingerprintjs/ => refresh the webpage in anti fingerprinting framework and will show same fingerprint
-         2. Compare fingerprint in two anti fingerprinting frameworks and will show still same fingerprint 
-         3. It seems anti fingerprinting framework is irritating some, HA HA HA
-         4. In my opinion ip address must be used for device/browser fingerprinting 
+### 11. Test the anti fingerprinting framework in each of Your PCs
+1. THREE APPROACHES of DEVICE/WEBSITE FINGERPRINTING 
+    1. IP ADDRESS + DEVICE/BROWSER DETAILS (random fingerprint)
+         1. **Refresh the webpage to see random fingerprint** *https://www.thumbmarkjs.com/resources/demo*
+      2. DEVICE/BROWSER DETAILS (random fingerprint)
+         1. **Refresh the webpage to see random fingerprint** *https://priyangsubanerjee.github.io/device-fingerprinting/* =
+      3. selected DEVICE/BROWSER DETAILS
+         1. **Get fingerprint from all your PCs and the fingerprint will be same ** *https://fingerprintjs.github.io/fingerprintjs/*
+         2. It seems anti fingerprinting framework is irritating some, HA HA HA
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
