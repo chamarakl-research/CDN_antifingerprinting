@@ -143,7 +143,7 @@
     1. IP ADDRESS + DEVICE/BROWSER DETAILS (random fingerprint)
          1. **Refresh the webpage to see random fingerprint** *https://www.thumbmarkjs.com/resources/demo*
       2. DEVICE/BROWSER DETAILS (random fingerprint)
-         1. **Refresh the webpage to see random fingerprint** *https://priyangsubanerjee.github.io/device-fingerprinting/* =
+         1. **Refresh the webpage to see random fingerprint** *https://priyangsubanerjee.github.io/device-fingerprinting/*
       3. selected DEVICE/BROWSER DETAILS
          1. **Get fingerprint from all your PCs and the fingerprint will be same** *https://fingerprintjs.github.io/fingerprintjs/*
          2. It seems anti fingerprinting framework is irritating some, HA HA HA
