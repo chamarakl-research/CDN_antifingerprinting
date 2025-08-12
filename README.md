@@ -139,6 +139,12 @@
 14. ```sudo apt-get install mullvad-browser```
 15. ```sudo systemctl restart openvpn@client tor```
 16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
+17. **Install openvpn client in windows** https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
+18. **Create a folder** C:\Openvpn_keys
+19. **Copy** ca.crt myclient1.crt myclient1.key ta.key from NUC to C:\Openvpn_keys
+20. **Copy** myclient1.ovpn from repository to C:\Openvpn_keys
+21. **Edit** include the keys in myclient1.ovpn
+22. **Upload** the myclient1.ovpn to Openvpn connect app 
 
 ### 11. Test the anti fingerprinting framework in each of Your PCs
 1. THREE APPROACHES of DEVICE/BROWSER FINGERPRINTING 
