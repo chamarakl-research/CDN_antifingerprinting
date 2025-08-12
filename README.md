@@ -120,7 +120,7 @@
    28. ```sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server```
    29. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
        
-### In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu 24.04
+### 10. In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu
     1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
     2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
     3. **Line42:** ```remote 10.42.0.1 1194``` *Change NUC LAN interface IP address to match your configuration*
@@ -137,8 +137,8 @@
     14. ```sudo apt-get install mullvad-browser```
     15. ```sudo systemctl restart openvpn@client tor```
     16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
-   
-13. Test the anti fingerprinting framework (Upto point 12)
+
+### 11. Test the anti fingerprinting framework (Upto point 12)
     1. It seems there are three methods of doing fingerprinting
       1. use ip address + device/browser detatils (random fingerprint)
          1. https://www.thumbmarkjs.com/resources/demo => refresh the webpage in anti fingerprinting framework
@@ -153,4 +153,3 @@
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
   
-B. It is possible to use Mullvad browser (https://mullvad.net) without the VPN service with the anti fingerprinting CDN and get the same level as privacy as the Tor browser with anti fingerprinting CDN 
