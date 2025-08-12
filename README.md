@@ -1,6 +1,6 @@
 # Content Delivery Network (CDN) as device/browser Anti fingerprinter 
 
-![alt text](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC.jpg "CDN")
+![AntiFP_arch](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC.jpg "CDN")
 
 ### Anti fingerprinting framework system components  
 
@@ -149,6 +149,8 @@
       3. selected DEVICE/BROWSER DETAILS
          1. **Get fingerprint from all your PCs and the fingerprint will be same** *https://fingerprintjs.github.io/fingerprintjs/*
          2. It seems anti fingerprinting framework is irritating some, HA HA HA
+
+![AntiFP_res](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_Results.jpg "CDN")
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
