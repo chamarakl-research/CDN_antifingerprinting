@@ -1,4 +1,4 @@
-# Content Delivery Network (CDN) as device/website Anti fingerprinter 
+# Content Delivery Network (CDN) as device/browser Anti fingerprinter 
 
 ### Anti fingerprinting framework system components  
 
