@@ -18,14 +18,18 @@
 3. ```sudo nano /etc/hosts```
 4. Add ```cache_server <your NUC LAN interface ip address>```
 
-### In your PCs install Windows Subsystem for Linux (WSL)
+### In EACH of your PCs install Windows Subsystem for Linux (WSL)
 1. **Open** powershell
 2. **Download** https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
 3. ```wsl --install --from-file "<path>\ubuntu-24.04.2-wsl-amd64.wsl"```
 4. ```wsl```
 5. ```sudo nano /etc/hosts```
-6. Add ```myclient1 <your PCs LAN interface ip address>```
-   
+6. **Add** ```myclient1 <your PCs LAN interface ip address>```
+7. ```sudo apt-get install pulseaudio```
+8. ```sudo apt-get install proxychains4 tor```
+9. ```cd ~```
+10. ```git clone https://github.com/chamarakl-research/CDN_antifingerprinting.git```
+    
 ### 1. Install DANTE SOCKS server in NUC
    1. ```sudo apt-get install dante-server```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/danted.conf```
@@ -116,41 +120,6 @@
    28. ```sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server```
    29. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
 
-30. To futher reduce the fingerprint you can run the the torbrowser through WSL which emulate the complete computer system (Optional) 
-    1. Download -> https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
-    2. Install ubuntu wsl using powershell -> wsl --install --from-file "<path>\ubuntu-24.04.2-wsl-amd64.wsl"
-    3. Run WSL -> wsl
-    4. Download torbrowser -> wget https://dist.torproject.org/torbrowser/14.5.5/tor-browser-linux-x86_64-14.5.5.tar
-    5. Extract -> tar -xvf tor-browser-linux-x86_64-14.5.5.tar
-    6. run torbrowser -> cd tor-browser -> ./start-tor-browser.desktop
-    7. You will see in https://coveryourtracks.eff.org that the number bits used to represent your device/website fingerprint has reduced
-    8. To get sound install in WSL -> sudo apt-get install pulseaudio
-
-31. To further reduce fingerprint openvpn connection can be setup between WSL emulated system and anti fingerprinting CDN DEBIAN server internal interface (Optional -Advanced)
-    
-    This is based on the assumption that device\website fingerprinter use Large Language Models (LLM) to model the temporal packet transmission relationship in the ISP backbone
-    We use openvpn with UDP beetween WSL ubuntu client and anti fingerprinting CDN DEBIAN server so that the packet sizes are random 
-    1. Install in anitifingerprinting CDN -> sudo apt-get install openvpm easy-rsa
-    2. sudo make-cadir /etc/openvpn/easy-rsa
-    3. sudo su
-    4. cd /etc/openvpn/easy-rsa
-    5. ./easyrsa init-pki
-    6. ./easyrsa build-ca
-    7. ./easyrsa gen-req cache_server nopass (cache_server is the name given in /etc/hosts file with internal interface ip address of anti fingerprinting CDN DEBIAN server)
-    8. ./easyrsa gen-dh
-    9. ./easyrsa sign-req server cache_server (cache_server is the name given in /etc/hosts file with internal interface ip address of anti fingerprinting CDN DEBIAN server)
-    10. cp pki/dh.pem pki/ca.crt pki/issued/cache_server.crt pki/private/cache_server.key /etc/openvpn/
-    11. Ctrl + D (exit sudo)
-    12. cd /etc/open
-    13. sudo openvpn --genkey --secret ta.key
-    14. sudo nano /etc/sysctl.conf and set net.ipv4.ip_forward=1
-    15. sudo sysctl -p /etc/sysctl.conf
-    16. sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf
-    17. copy github repository server.conf file to /etc/openvpn/ (Set internal ip address 10.42.0.1 to match your antifingerprinting CDN DEBIAN server internal ip address)
-    18. Start the CDN server with -> sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server
-    19. sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf   
-    20. ./easyrsa gen-req myclient1 nopass  (myclient1 is the name given in /etc/hosts file with internal interface ip address of WSL ubuntu client)
-    21. ./easyrsa sign-req client myclient1  (myclient1 is the name given in /etc/hosts file with internal interface ip address of USL ubuntu client)
 
    WSL Ubuntu client 
    
