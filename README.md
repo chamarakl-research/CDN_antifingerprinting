@@ -24,7 +24,7 @@
 3. ```sudo nano /etc/hosts```
 4. Add ```myclient1 <your PCs LAN interface ip address>```
    
-### 1. Install DANTE SOCKS server
+### 1. Install DANTE SOCKS server in NUC
    1. ```sudo apt-get install dante-server```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/danted.conf```
       1. Line2: ```internal: 10.42.0.1 port = 1080``` Change NUC LAN interface ip address to match your configuration
@@ -33,32 +33,32 @@
       4. Line21: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration 
    4. ```sudo cp ~/CDN_antifingerprinting/etc/danted.conf /etc/```
   
-### 2. Install BIND9 DNS server
+### 2. Install BIND9 DNS server in NUC
    1. ```sudo apt-get install bind9 bind9utils dnsutils```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/bind/named.conf.options```
    3. Line3: ```10.42.0.0/24;``` Change NUC LAN interface IP subnetwork to match your configuration 
    4. ```sudo ~/CDN_antifingerprinting/etc/bind/named.conf.options /etc/bind/```
   
-### 3. Install SQUID caching server
+### 3. Install SQUID caching server in NUC
    1. ```sudo apt-get install squid```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/squid/squid.conf```
    3. Line1334: ```acl localnet src 10.42.0.0/24``` Change NUC LAN interface IP subnetwork to match your configuration 
    4. Line2106: ```http_port 10.42.0.1:3128`` Change NUC LAN interface IP address to match your configuration 
    5. ```sudo cp ~/CDN_antifingerprinting/etc/squid/squid.conf /etc/squid/```
 
-### 4. Install PRIVOXY ad blocker
+### 4. Install PRIVOXY ad blocker in NUC
    1. ```sudo apt-get install privoxy```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/privoxy/config```
    3. Line794: ```listen-address  10.42.0.1:8118`` Change NUC LAN interface IP address to match your configuration
    4. 
    5. ```sudo cp ~/CDN_antifingerprinting/etc/privoxy/config /etc/privoxy/```
   
-### 5. Install NGINX reverse proxy
+### 5. Install NGINX reverse proxy in NUC
    1. ```sudo apt-get install nginx```
    2. ```sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/private_cache_server.key -out /etc/ssl/certs/public_cache_server_certificates.crt -subj "/CN=cache_server"```
    3. ```sudo cp ~/CDN_antifingerprinting/etc/nginx/sites-available/default /etc/nginx/sites-available/```
   
-### 6. Install VARNISH HTTP accelerator
+### 6. Install VARNISH HTTP accelerator in NUC
    1. ```sudo apt-get install varnish```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/varnish/default.vcl```
    3. Line 4 ```.host = "10.42.0.1";``` Change NUC LAN interface IP address to match your configuration 
@@ -66,7 +66,7 @@
    5. ```sudo cp /CDN_antifingerprinting/lib/systemd/system/varnish.service /lib/systemd/system/varnish.service```
    6. ```sudo systemctl daemon-reload```
 
-### 7. Install HITCH HTTPS accelerator
+### 7. Install HITCH HTTPS accelerator in NUC
    1. ```sudo apt-get install hitch```
    2. ```sudo cp ~/CDN_antifingerprinting/hitch/hitch.conf /etc/hitch```
    3. ```sudo useradd hitch```
@@ -84,7 +84,7 @@
    4. Line24 ```SocksPolicy accept 10.42.0.0/24``` Change NUC LAN interface subnetwork IP address to match your configuration
    5. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc /etc/tor/```
 
-### 9. Install openvpn server 
+### 9. Install openvpn server in NUC
    1. ```sudo apt-get install openvpn easy-rsa```
    2. ```sudo make-cadir /etc/openvpn/easy-rsa```
    3. ```sudo su```
