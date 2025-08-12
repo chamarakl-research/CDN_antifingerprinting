@@ -19,10 +19,12 @@
 4. Add ```cache_server <your NUC LAN interface ip address>```
 
 ### In your PCs install Windows Subsystem for Linux (WSL)
-1. open powershell
-2. ```wsl```
-3. ```sudo nano /etc/hosts```
-4. Add ```myclient1 <your PCs LAN interface ip address>```
+1. **Open** powershell
+2. **Download** https://releases.ubuntu.com/noble/ubuntu-24.04.3-wsl-amd64.wsl
+3. ```wsl --install --from-file "<path>\ubuntu-24.04.2-wsl-amd64.wsl"```
+4. ```wsl```
+5. ```sudo nano /etc/hosts```
+6. Add ```myclient1 <your PCs LAN interface ip address>```
    
 ### 1. Install DANTE SOCKS server in NUC
    1. ```sudo apt-get install dante-server```
@@ -77,7 +79,7 @@
    8. ```cat private_hitch.key public_hitch.crt > hitch.pem```
    9. ```sudo cp ~/CDN_antifingerprinting/hitch/hitch.pem /etc/hitch/```
   
-### 8. Enabling TOR service  (Creative Commons Attribution 3.0 United States License)
+### 8. Enabling TOR service in NUC (Creative Commons Attribution 3.0 United States License)
    1. ```sudo apt-get install tor```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc```
    3. Line19 ```SocksPort 10.42.0.1:9100``` Change NUC LAN interface IP address to match your configuration
