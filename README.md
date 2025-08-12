@@ -121,22 +121,22 @@
    29. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
        
 ### 10. In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu
-    1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
-    2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
-    3. **Line42:** ```remote 10.42.0.1 1194``` *Change NUC LAN interface IP address to match your configuration*
-    4. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/client.conf /etc/openvpn```
-    5. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ca.crt ~/CDN_antifingerprinting/```
-    6. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.crt ~/CDN_antifingerprinting/```
-    7. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.key ~/CDN_antifingerprinting/```
-    8. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ta.key ~/CDN_antifingerprinting/```
-    9. ```cd ~/CDN_antifingerprinting/```
-    10. ```sudo cp ca.crt myclient1.crt myclient1.key ta.key /etc/openvpn/```
-    11. ```sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc```
-    12. ```echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | sudo tee /etc/apt/sources.list.d/mullvad.list```
-    13. ```sudo apt-get update```
-    14. ```sudo apt-get install mullvad-browser```
-    15. ```sudo systemctl restart openvpn@client tor```
-    16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
+1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
+2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
+3. **Line42:** ```remote 10.42.0.1 1194``` *Change NUC LAN interface IP address to match your configuration*
+4. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/client.conf /etc/openvpn```
+5. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ca.crt ~/CDN_antifingerprinting/```
+6. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.crt ~/CDN_antifingerprinting/```
+7. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.key ~/CDN_antifingerprinting/```
+8. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ta.key ~/CDN_antifingerprinting/```
+9. ```cd ~/CDN_antifingerprinting/```
+10. ```sudo cp ca.crt myclient1.crt myclient1.key ta.key /etc/openvpn/```
+11. ```sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc```
+12. ```echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | sudo tee /etc/apt/sources.list.d/mullvad.list```
+13. ```sudo apt-get update```
+14. ```sudo apt-get install mullvad-browser```
+15. ```sudo systemctl restart openvpn@client tor```
+16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
 
 ### 11. Test the anti fingerprinting framework (Upto point 12)
     1. It seems there are three methods of doing fingerprinting
