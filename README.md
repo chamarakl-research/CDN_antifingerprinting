@@ -2,8 +2,8 @@
 
 ### Anti fingerprinting framework system components  
 
-1. Your PCs :- PC with windows subsystem for Linux (WSL) running ubuntu 24.04
-2. Next Unit of Computing (NUC) :- PC running DEBIAN 12
+1. **Your PCs** :- PC with windows subsystem for Linux (WSL) running ubuntu 24.04
+2. **Next Unit of Computing (NUC)** :- PC running DEBIAN 12
 3. Internet Connection
 4. Your PCs are connected to the NUC ethernet port via a switch or wireless LAN router and NUC is connected to the internet via USB or ethernet by a internet router  
 
