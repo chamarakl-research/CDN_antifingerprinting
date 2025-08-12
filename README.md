@@ -145,7 +145,7 @@
       2. DEVICE/BROWSER DETAILS (random fingerprint)
          1. **Refresh the webpage to see random fingerprint** *https://priyangsubanerjee.github.io/device-fingerprinting/* =
       3. selected DEVICE/BROWSER DETAILS
-         1. **Get fingerprint from all your PCs and the fingerprint will be same ** *https://fingerprintjs.github.io/fingerprintjs/*
+         1. **Get fingerprint from all your PCs and the fingerprint will be same** *https://fingerprintjs.github.io/fingerprintjs/*
          2. It seems anti fingerprinting framework is irritating some, HA HA HA
 
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
