@@ -55,7 +55,7 @@
 ### 4. Install PRIVOXY ad blocker in NUC
    1. ```sudo apt-get install privoxy```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/privoxy/config```
-   3. **Line794:** ```listen-address  10.42.0.1:8118`` *Change NUC LAN interface IP address to match your configuration*
+   3. **Line794:** ```listen-address  10.42.0.1:8118``` *Change NUC LAN interface IP address to match your configuration*
    4. ```sudo cp ~/CDN_antifingerprinting/etc/privoxy/config /etc/privoxy/```
   
 ### 5. Install NGINX reverse proxy in NUC
