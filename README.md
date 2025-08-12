@@ -12,7 +12,7 @@ PC with tor browser -> CDN Server for antifingerprinting -> Internet
 
 Creating the CDN antifingerprinting server 
 1. Install DANTE SOCKS server
-   1. sudo apt-get install dante-server
+   1. ```sudo apt-get install dante-server```
    2. Change the ipaddress of danted.conf in the github repository to match your network interface ipaddress of the DEBIAN server (CDN server for antifingerprinting)
    3. sudo cp danted.conf /etc/
   
