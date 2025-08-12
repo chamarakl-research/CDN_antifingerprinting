@@ -1,5 +1,7 @@
 # Content Delivery Network (CDN) as device/browser Anti fingerprinter 
 
+![alt text](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC.jpg "CDN")
+
 ### Anti fingerprinting framework system components  
 
 1. **Your PCs** :- PC with windows subsystem for Linux (WSL) running ubuntu 24.04
