@@ -1,22 +1,26 @@
-# CDN_antifingerprinting
-CDN Solution for Antifinger printing
+# Content Delivery Network (CDN) as device/website Anti fingerprinter 
 
-System
+### Anti fingerprinting framework system components  
 
-PC with tor browser -> CDN Server for antifingerprinting -> Internet 
+1. Your PCs :- PC with windows subsystem for Linux (WSL) running ubuntu 24.04
+2. Next Unit of Computing (NUC) :- PC running DEBIAN 12
+3. Internet Connection
+4. Your PCs are connected to the NUC ethernet port via a switch or wireless LAN router and NUC is connected to the internet via USB or ethernet by a internet router  
 
-1. We are using DEBIAN 12 as the CDN with two internet connections
-2. Internal 10.42.0.0/24
-3. External 1: 172.20.10.0/28
-4. External 2: 192.168.0.0/24 
+### IP addresses of the proposed system (Change to your requirement) 
 
-Creating the CDN antifingerprinting server 
-1. Install DANTE SOCKS server
+1. Your PCs subnetwork 10.42.0.0/24. Your PCs ipaddresses start from 10.42.0.2 - 10.42.0.254. CDN server (NUC) LAN interface ip address is 10.42.0.1
+2. Internet connection subnetwork 172.20.10.0/28 and the NUC internet interface ip address is 172.20.10.3
+
+### Clone software to your home directory (~)
+1. ``` git clone https://github.com/chamarakl-research/CDN_antifingerprinting.git```
+   
+### 1. Install DANTE SOCKS server
    1. ```sudo apt-get install dante-server```
    2. Change the ipaddress of danted.conf in the github repository to match your network interface ipaddress of the DEBIAN server (CDN server for antifingerprinting)
-   3. sudo cp danted.conf /etc/
+   3. ```sudo cp ~/CDN_antifingerprinting/etc/danted.conf /etc/```
   
-2. Install BIND9 DNS server
+### 2. Install BIND9 DNS server
    1. sudo apt-get install bind9 bind9utils dnsutils
    2. Change the internal ip address block 10.42.0.0/24 of named.conf.options in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
    3. sudo cp bind/named.conf.options /etc/bind/
