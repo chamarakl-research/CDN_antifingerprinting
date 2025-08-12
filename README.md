@@ -29,31 +29,30 @@
 ### 1. Install DANTE SOCKS server in NUC
    1. ```sudo apt-get install dante-server```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/danted.conf```
-      1. Line2: ```internal: 10.42.0.1 port = 1080``` Change NUC LAN interface ip address to match your configuration
-      2. Line3: ```external: 172.20.10.3``` Change NUC internet interface ip address to match your configuration
-      3. Line11: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration 
-      4. Line21: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration 
+      1. **Line2:** ```internal: 10.42.0.1 port = 1080``` *Change NUC LAN interface ip address to match your configuration*
+      2. **Line3:** ```external: 172.20.10.3``` *Change NUC internet interface ip address to match your configuration*
+      3. **Line11:** ```from: 10.42.0.0/24 to: 172.20.10.0/28``` *Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration* 
+      4. **Line21:** ```from: 10.42.0.0/24 to: 172.20.10.0/28``` *Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration* 
    4. ```sudo cp ~/CDN_antifingerprinting/etc/danted.conf /etc/```
   
 ### 2. Install BIND9 DNS server in NUC
    1. ```sudo apt-get install bind9 bind9utils dnsutils```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/bind/named.conf.options```
-   3. Line3: ```10.42.0.0/24;``` Change NUC LAN interface IP subnetwork to match your configuration 
+   3. **Line3:** ```10.42.0.0/24;``` *Change NUC LAN interface IP subnetwork to match your configuration*
    4. ```sudo ~/CDN_antifingerprinting/etc/bind/named.conf.options /etc/bind/```
   
 ### 3. Install SQUID caching server in NUC
    1. ```sudo apt-get install squid```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/squid/squid.conf```
-   3. Line1334: ```acl localnet src 10.42.0.0/24``` Change NUC LAN interface IP subnetwork to match your configuration 
-   4. Line2106: ```http_port 10.42.0.1:3128`` Change NUC LAN interface IP address to match your configuration 
+   3. *Line1334:* ```acl localnet src 10.42.0.0/24``` *Change NUC LAN interface IP subnetwork to match your configuration* 
+   4. *Line2106:* ```http_port 10.42.0.1:3128`` *Change NUC LAN interface IP address to match your configuration*
    5. ```sudo cp ~/CDN_antifingerprinting/etc/squid/squid.conf /etc/squid/```
 
 ### 4. Install PRIVOXY ad blocker in NUC
    1. ```sudo apt-get install privoxy```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/privoxy/config```
-   3. Line794: ```listen-address  10.42.0.1:8118`` Change NUC LAN interface IP address to match your configuration
-   4. 
-   5. ```sudo cp ~/CDN_antifingerprinting/etc/privoxy/config /etc/privoxy/```
+   3. **Line794:** ```listen-address  10.42.0.1:8118`` *Change NUC LAN interface IP address to match your configuration*
+   4. ```sudo cp ~/CDN_antifingerprinting/etc/privoxy/config /etc/privoxy/```
   
 ### 5. Install NGINX reverse proxy in NUC
    1. ```sudo apt-get install nginx```
@@ -63,7 +62,7 @@
 ### 6. Install VARNISH HTTP accelerator in NUC
    1. ```sudo apt-get install varnish```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/varnish/default.vcl```
-   3. Line 4 ```.host = "10.42.0.1";``` Change NUC LAN interface IP address to match your configuration 
+   3. **Line4:** ```.host = "10.42.0.1";``` *Change NUC LAN interface IP address to match your configuration*
    4. ```sudo cp  ~/CDN_antifingerprinting/etc/varnish/default.vcl /etc/varnish/default.vcl```
    5. ```sudo cp /CDN_antifingerprinting/lib/systemd/system/varnish.service /lib/systemd/system/varnish.service```
    6. ```sudo systemctl daemon-reload```
@@ -82,8 +81,8 @@
 ### 8. Enabling TOR service in NUC (Creative Commons Attribution 3.0 United States License)
    1. ```sudo apt-get install tor```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc```
-   3. Line19 ```SocksPort 10.42.0.1:9100``` Change NUC LAN interface IP address to match your configuration
-   4. Line24 ```SocksPolicy accept 10.42.0.0/24``` Change NUC LAN interface subnetwork IP address to match your configuration
+   3. **Line19:** ```SocksPort 10.42.0.1:9100``` *Change NUC LAN interface IP address to match your configuration*
+   4. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
    5. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc /etc/tor/```
 
 ### 9. Install openvpn server in NUC
@@ -100,10 +99,10 @@
    11. ```cd /etc/openvpn```
    12. ```sudo openvpn --genkey --secret ta.key```
    13. ```sudo nano /etc/sysctl.conf```
-   14. Line28 remove **#** and enable ```net.ipv4.ip_forward=1```
+   14. **Line28:** *remove* **#** *and enable* ```net.ipv4.ip_forward=1```
    15. ```sudo sysctl -p /etc/sysctl.conf```
    16. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/server.conf```
-   17. Line25: ```local 10.42.0.1``` Change NUC LAN interface IP address to match your configuration
+   17. **Line25:** ```local 10.42.0.1``` *Change NUC LAN interface IP address to match your configuration*
    18. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/server.conf /etc/openvpn/```
    19. ```sudo su```
    20. ```cd /etc/openvpn/easy-rsa```
