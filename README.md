@@ -19,23 +19,25 @@
    
 ### 1. Install DANTE SOCKS server
    1. ```sudo apt-get install dante-server```
-   2. sudo nano ~/CDN_antifingerprinting/etc/danted.conf
+   2. ```sudo nano ~/CDN_antifingerprinting/etc/danted.conf```
       1. Line2: ```internal: 10.42.0.1 port = 1080``` Change NUC LAN interface ip address to match your configuration
       2. Line3: ```external: 172.20.10.3``` Change NUC internet interface ip address to match your configuration
-      3. Line11: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork
-      4. Line21: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork
+      3. Line11: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration 
+      4. Line21: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork to match your configuration 
    4. ```sudo cp ~/CDN_antifingerprinting/etc/danted.conf /etc/```
   
 ### 2. Install BIND9 DNS server
-   1. sudo apt-get install bind9 bind9utils dnsutils
-   2. Change the internal ip address block 10.42.0.0/24 of named.conf.options in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
-   3. sudo cp bind/named.conf.options /etc/bind/
+   1. ```sudo apt-get install bind9 bind9utils dnsutils```
+   2. ```sudo nano ~/CDN_antifingerprinting/etc/bind/named.conf.options```
+   3. Line3: ```10.42.0.0/24;``` Change NUC LAN interface IP subnetwork to match your configuration 
+   4. ```sudo ~/CDN_antifingerprinting/etc/bind/named.conf.options /etc/bind/```
   
-3. Install SQUID caching server
-   1. sudo apt-get install squid
-   2. Change "acl localnet src" address 10.42.0.0/24 (use Ctrl+F to find) in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
-   3. Change "http_port 10.42.0.1:3128" in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
-   4. sudo cp squid/squid.conf /etc/squid
+### 3. Install SQUID caching server
+   1. ```sudo apt-get install squid```
+   2. ```sudo nano ~/CDN_antifingerprinting/etc/squid/squid.conf```
+   3. Change "acl localnet src" address 10.42.0.0/24 (use Ctrl+F to find) in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
+   4. Change "http_port 10.42.0.1:3128" in squid.conf in the github repository to match your internal network interface ip address of the DEBIAN server (CDN server for fingerprinting)
+   5. sudo cp squid/squid.conf /etc/squid
 
 4. Install PRIVOXY ad blocker
    1. sudo apt-get install privoxy
