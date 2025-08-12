@@ -14,11 +14,17 @@
 
 ### Clone software to your home directory (~)
 1. ``` git clone https://github.com/chamarakl-research/CDN_antifingerprinting.git```
+2. ```sudo nano /etc/hosts```
+3. Add ```cache_server <your NUC LAN interface ip address>```
    
 ### 1. Install DANTE SOCKS server
    1. ```sudo apt-get install dante-server```
-   2. Change the ipaddress of danted.conf in the github repository to match your network interface ipaddress of the DEBIAN server (CDN server for antifingerprinting)
-   3. ```sudo cp ~/CDN_antifingerprinting/etc/danted.conf /etc/```
+   2. sudo nano ~/CDN_antifingerprinting/etc/danted.conf
+      1. Line2: ```internal: 10.42.0.1 port = 1080``` Change NUC LAN interface ip address to match your configuration
+      2. Line3: ```external: 172.20.10.3``` Change NUC internet interface ip address to match your configuration
+      3. Line11: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork
+      4. Line21: ```from: 10.42.0.0/24 to: 172.20.10.0/28``` Change NUC LAN interface IP subnetwork and LAN interface internet IP subnetwork
+   4. ```sudo cp ~/CDN_antifingerprinting/etc/danted.conf /etc/```
   
 ### 2. Install BIND9 DNS server
    1. sudo apt-get install bind9 bind9utils dnsutils
