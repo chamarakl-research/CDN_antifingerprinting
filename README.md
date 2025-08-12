@@ -119,7 +119,7 @@
    27. ```sudo cp /etc/openvpn/ta.key ~/CDN_antifingerprinting/client_cert/```
    28. ```sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server```
    29. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
-
+       
 ### In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu 24.04
     1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
     2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
@@ -137,19 +137,6 @@
     14. ```sudo apt-get install mullvad-browser```
     15. ```sudo systemctl restart openvpn@client tor```
     16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
-    
-    
-   
-    1. cp pki/ca.crt pki/issued/myclient1.crt pki/private/myclient1.key /etc/openvpn/ta.key from anti fingerprinting CDN DEBIAN server to WSL ubuntu client (use scp to copy and chown to change ownership of files )
-    2. copy github repository client.conf file to /etc/openvpn/ in WSL ubuntu client
-    3. sudo systemctl restart openvpn@client
-    
-12. NEW  ---> RANDOM fingerprint with Mullvad browser + tor service in WSL ubuntu client and anti fingerprinting CDN DEBIAN server (PLEASE TEST) <-----
-    1. Setting up proxychains in WSL ubuntu client  -> sudo apt-get install proxychains4 tor
-    2. cp etc/proxychains.conf from github repository to /etc/ in WSL ubuntu client
-    3. sudo systemctl restart openvpn@client tor
-    4. proxychains mullvad-browser --detach
-    5. In browserleaks.com the number of adblockers keep changing and the DNS ip addresses are not localized to a region
    
 13. Test the anti fingerprinting framework (Upto point 12)
     1. It seems there are three methods of doing fingerprinting
