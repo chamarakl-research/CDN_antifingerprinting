@@ -89,10 +89,23 @@
    2. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.1```
    3. **Line19:** ```SocksPort 10.42.0.1:9110``` *Change NUC LAN interface IP address to match your configuration*
    4. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
-   5. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.1```
-   6. **Line19:** ```SocksPort 10.42.0.1:9120``` *Change NUC LAN interface IP address to match your configuration*
-   7. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
-   8. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.2 /etc/tor/```
+   5. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.1 /etc/tor/```
+   6. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.2```
+   7. **Line19:** ```SocksPort 10.42.0.1:9120``` *Change NUC LAN interface IP address to match your configuration*
+   8. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
+   9. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.2 /etc/tor/```
+   10. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.3```
+   11. **Line19:** ```SocksPort 10.42.0.1:9130``` *Change NUC LAN interface IP address to match your configuration*
+   12. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
+   13. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.3 /etc/tor/```
+   14. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.4```
+   11. **Line19:** ```SocksPort 10.42.0.1:9140``` *Change NUC LAN interface IP address to match your configuration*
+   12. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
+   13. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.4 /etc/tor/`
+   14. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.5```
+   11. **Line19:** ```SocksPort 10.42.0.1:9150``` *Change NUC LAN interface IP address to match your configuration*
+   12. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
+   13. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.5 /etc/tor/`
 
 ### 9. Install openvpn server in NUC
    1. ```sudo apt-get install openvpn easy-rsa```
