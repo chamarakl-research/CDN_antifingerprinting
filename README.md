@@ -182,7 +182,7 @@
 ### 12. Test the anti fingerprinting framework in each of Your PCs
 1. THREE APPROACHES of DEVICE/BROWSER FINGERPRINTING 
     1. IP ADDRESS + DEVICE/BROWSER DETAILS (random fingerprint)
-         1. **Refresh the webpage to see random fingerprint** *https://www.thumbmarkjs.com/resources/demo*
+         1. **Refresh the webpage after 5 minitues to see random fingerprint** *https://www.thumbmarkjs.com/resources/demo*
       2. DEVICE/BROWSER DETAILS (random fingerprint)
          1. **Refresh the webpage to see random fingerprint** *https://priyangsubanerjee.github.io/device-fingerprinting/*
       3. selected DEVICE/BROWSER DETAILS
