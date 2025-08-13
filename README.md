@@ -107,7 +107,18 @@
    12. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
    13. ```sudo cp ~/CDN_antifingerprinting/etc/tor/torrc.5 /etc/tor/`
 
-### 9. Install openvpn server in NUC
+### 9. Install haproxy in NUC
+1. ```sudo apt-get install haproxy```
+2. ```sudo nano ~/CDN_antifingerprinting/etc/haproxy/haproxy.cfg```
+3. **Line28:** ```bind 10.42.0.1:9100``` *Change NUC LAN interface IP address to match your configuration*
+4. **Line33:** ```server tor1 10.42.0.1:9110 check``` *Change NUC LAN interface IP address to match your configuration*
+5. **Line34:** ```server tor1 10.42.0.2:9110 check``` *Change NUC LAN interface IP address to match your configuration*
+6. **Line35:** ```server tor1 10.42.0.3:9110 check``` *Change NUC LAN interface IP address to match your configuration*
+7. **Line36:** ```server tor1 10.42.0.4:9110 check``` *Change NUC LAN interface IP address to match your configuration*
+8. **Line37:** ```server tor1 10.42.0.5:9110 check``` *Change NUC LAN interface IP address to match your configuration*
+9. ```sudo cp ~/CDN_antifingerprinting/etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg```
+
+### 10. Install openvpn server in NUC
    1. ```sudo apt-get install openvpn easy-rsa```
    2. ```sudo make-cadir /etc/openvpn/easy-rsa```
    3. ```sudo su```
@@ -135,10 +146,16 @@
    25. ```sudo cp /etc/openvpn/easy-rsa/pki/issued/myclient1.crt ~/CDN_antifingerprinting/client_cert/```
    26. ```sudo cp /etc/openvpn/easy-rsa/pki/private/myclient1.key ~/CDN_antifingerprinting/client_cert/```
    27. ```sudo cp /etc/openvpn/ta.key ~/CDN_antifingerprinting/client_cert/```
-   28. ```sudo systemctl restart danted bind9 privoxy squid nginx tor varnish openvpn@server```
-   29. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
-       
-### 10. In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu
+   28. ```sudo systemctl restart danted bind9 privoxy squid nginx```
+   29. ```sudo tor -f /etc/tor/torrc.1```
+   30. ```sudo tor -f /etc/tor/torrc.2```
+   31. ```sudo tor -f /etc/tor/torrc.3```
+   32. ```sudo tor -f /etc/tor/torrc.4```
+   33. ```sudo tor -f /etc/tor/torrc.5```
+   34. ```sudo systemctl restart haproxy varnish openvpn@server```
+   35. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
+
+### 11. In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu
 1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
 2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
 3. **Line42:** ```remote 10.42.0.1 1194``` *Change NUC LAN interface IP address to match your configuration*
