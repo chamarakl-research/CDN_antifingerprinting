@@ -112,10 +112,10 @@
 2. ```sudo nano ~/CDN_antifingerprinting/etc/haproxy/haproxy.cfg```
 3. **Line28:** ```bind 10.42.0.1:9100``` *Change NUC LAN interface IP address to match your configuration*
 4. **Line33:** ```server tor1 10.42.0.1:9110 check``` *Change NUC LAN interface IP address to match your configuration*
-5. **Line34:** ```server tor1 10.42.0.2:9110 check``` *Change NUC LAN interface IP address to match your configuration*
-6. **Line35:** ```server tor1 10.42.0.3:9110 check``` *Change NUC LAN interface IP address to match your configuration*
-7. **Line36:** ```server tor1 10.42.0.4:9110 check``` *Change NUC LAN interface IP address to match your configuration*
-8. **Line37:** ```server tor1 10.42.0.5:9110 check``` *Change NUC LAN interface IP address to match your configuration*
+5. **Line34:** ```server tor1 10.42.0.2:9120 check``` *Change NUC LAN interface IP address to match your configuration*
+6. **Line35:** ```server tor1 10.42.0.3:9130 check``` *Change NUC LAN interface IP address to match your configuration*
+7. **Line36:** ```server tor1 10.42.0.4:9140 check``` *Change NUC LAN interface IP address to match your configuration*
+8. **Line37:** ```server tor1 10.42.0.5:9150 check``` *Change NUC LAN interface IP address to match your configuration*
 9. ```sudo cp ~/CDN_antifingerprinting/etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg```
 
 ### 10. Install openvpn server in NUC
