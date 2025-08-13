@@ -85,7 +85,7 @@
    9. ```sudo cp ~/CDN_antifingerprinting/hitch/hitch.pem /etc/hitch/```
   
 ### 8. Enabling TOR service in NUC (Creative Commons Attribution 3.0 United States License)
-   1. ```sudo apt-get install tor```
+   1. ```sudo apt-get install obfs4proxy tor```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/tor/torrc.1```
    3. **Line19:** ```SocksPort 10.42.0.1:9110``` *Change NUC LAN interface IP address to match your configuration*
    4. **Line24:** ```SocksPolicy accept 10.42.0.0/24``` *Change NUC LAN interface subnetwork IP address to match your configuration*
