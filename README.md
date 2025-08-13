@@ -1,6 +1,6 @@
 # Content Delivery Network (CDN) as device/browser Anti fingerprinter 
 
-![AntiFP_arch](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC2.jpg "CDN")
+![AntiFP_arch](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC3.jpg "CDN")
 
 ### Anti fingerprinting framework system components  
 
