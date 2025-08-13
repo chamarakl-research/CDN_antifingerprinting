@@ -179,7 +179,7 @@
 21. **Edit** include the keys in myclient1.ovpn
 22. **Upload** the myclient1.ovpn to Openvpn connect app 
 
-### 11. Test the anti fingerprinting framework in each of Your PCs
+### 12. Test the anti fingerprinting framework in each of Your PCs
 1. THREE APPROACHES of DEVICE/BROWSER FINGERPRINTING 
     1. IP ADDRESS + DEVICE/BROWSER DETAILS (random fingerprint)
          1. **Refresh the webpage to see random fingerprint** *https://www.thumbmarkjs.com/resources/demo*
