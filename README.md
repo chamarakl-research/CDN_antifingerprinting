@@ -158,6 +158,8 @@
 
 ![AntiFP_res](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_Results.jpg "CDN")
 
+### Check your fingerprint in https://amiunique.org/fingerprint and refresh the page about after 10 minitues to see whether your unique fingerprint is genereated 
+
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
   
