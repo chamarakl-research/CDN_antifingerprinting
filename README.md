@@ -28,7 +28,7 @@
 5. ```sudo nano /etc/hosts```
 6. **Add** ```myclient1 <your PCs LAN interface ip address>```
 7. ```sudo apt-get install pulseaudio```
-8. ```sudo apt-get install proxychains4 tor```
+8. ```sudo apt-get install to```
 9. ```cd ~```
 10. ```git clone https://github.com/chamarakl-research/CDN_antifingerprinting.git```
     
@@ -171,7 +171,7 @@
 13. ```sudo apt-get update```
 14. ```sudo apt-get install mullvad-browser```
 15. ```sudo systemctl restart openvpn@client tor```
-16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
+16. ```mullvad-browser --detach --new-tab https://www.google.com```
 17. **Install openvpn client in windows** https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
 18. **Create a folder** C:\Openvpn_keys
 19. **Copy** ca.crt myclient1.crt myclient1.key ta.key from NUC to C:\Openvpn_keys
