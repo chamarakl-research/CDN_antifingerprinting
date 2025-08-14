@@ -52,7 +52,7 @@
    8. ```sudo systemctl disable dnsmasq```
    9. ```sudo systemctl stop dnsmasq```
    10. ```sudo netstat -nap | grep 53``` *Find process ID (PID) of dnsmasq and kill the process*
-   11. ```sudo kill -9 <process ID of dnsmasq```
+   11. ```sudo kill -9 <process ID of dnsmasq>```
   
 ### 3. Install SQUID caching server in NUC
    1. ```sudo apt-get install squid```
