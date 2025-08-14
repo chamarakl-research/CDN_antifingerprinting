@@ -188,7 +188,7 @@
 23. **Enable** DNS over HTTPS in __Network & Internet__ (optional)
 24. **Edit** DNS assignment (optional)
 25. **Choose** DNS over HTTPS __on(manual template)__ (optional)
-26. **Set** DNS over https template __https://dns.google/dns-query__ as we are using googel DNS servers (optional)
+26. **Set** DNS over https template __https://dns.google/dns-query__ as we are using google DNS servers (optional)
 
 ### 12. Test the anti fingerprinting framework in each of Your PCs
 1. THREE APPROACHES of DEVICE/BROWSER FINGERPRINTING 
