@@ -163,32 +163,35 @@
    35. ```sudo  /usr/sbin/hitch --user _hitch --group _hitch --config /etc/hitch/hitch.conf```
 
 ### 11. In EACH of your PCs with Windows Subsystem for Linux (WSL) Ubuntu
-1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
-2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
-3. **Line42:** ```remote 10.42.0.1 1194``` *Change NUC LAN interface IP address to match your configuration*
-4. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/client.conf /etc/openvpn```
-5. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ca.crt ~/CDN_antifingerprinting/```
-6. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.crt ~/CDN_antifingerprinting/```
-7. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.key ~/CDN_antifingerprinting/```
-8. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ta.key ~/CDN_antifingerprinting/```
-9. ```cd ~/CDN_antifingerprinting/```
-10. ```sudo cp ca.crt myclient1.crt myclient1.key ta.key /etc/openvpn/```
-11. ```sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc```
-12. ```echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | sudo tee /etc/apt/sources.list.d/mullvad.list```
-13. ```sudo apt-get update```
-14. ```sudo apt-get install mullvad-browser```
-15. ```sudo systemctl restart openvpn@client tor```
-16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
-17. **Install openvpn client in windows** https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
-18. **Create a folder** C:\Openvpn_keys
-19. **Copy** ca.crt myclient1.crt myclient1.key ta.key from NUC to C:\Openvpn_keys
-20. **Copy** myclient1.ovpn from repository to C:\Openvpn_keys
-21. **Edit** include the keys in myclient1.ovpn
-22. **Upload** the myclient1.ovpn to Openvpn connect app
-23. **Enable** DNS over HTTPS in __Network & Internet__ (optional)
-24. **Edit** DNS assignment (optional)
-25. **Choose** DNS over HTTPS __on(manual template)__ (optional)
-26. **Set** DNS over https template __https://dns.google/dns-query__ as we are using google DNS servers (optional)
+1. **Setting web browsing enviroment**
+    1. ```sudo cp ~/CDN_antifingerprinting/etc/proxychains.conf /etc/```
+    2. ```sudo nano ~/CDN_antifingerprinting/etc/openvpn/client.conf```
+    3. **Line42:** ```remote 10.42.0.1 1194``` *Change NUC LAN interface IP address to match your configuration*
+    4. ```sudo cp ~/CDN_antifingerprinting/etc/openvpn/client.conf /etc/openvpn```
+    5. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ca.crt ~/CDN_antifingerprinting/```
+    6. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.crt ~/CDN_antifingerprinting/```
+    7. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/myclient1.key ~/CDN_antifingerprinting/```
+    8. ```scp <username>@<NUC LAN IP> ~/CDN_antifingerprinting/client_cert/ta.key ~/CDN_antifingerprinting/```
+    9. ```cd ~/CDN_antifingerprinting/```
+    10. ```sudo cp ca.crt myclient1.crt myclient1.key ta.key /etc/openvpn/```
+    11. ```sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc```
+    12. ```echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | sudo tee /etc/apt/sources.list.d/mullvad.list```
+    13. ```sudo apt-get update```
+    14. ```sudo apt-get install mullvad-browser```
+    15. ```sudo systemctl restart openvpn@client tor```
+    16. ```proxychains mullvad-browser --detach --new-tab https://www.google.com```
+2. **Setting OpenVPN**
+    1. **Install openvpn client in windows** https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
+    2. **Create a folder** C:\Openvpn_keys
+    3. **Copy** ca.crt myclient1.crt myclient1.key ta.key from NUC to C:\Openvpn_keys
+    4. **Copy** myclient1.ovpn from repository to C:\Openvpn_keys
+    5. **Edit** include the keys in myclient1.ovpn
+    6. **Upload** the myclient1.ovpn to Openvpn connect app
+3. **Enabling DNS over HTTPS (DOH)**
+    1. **Enable** DNS over HTTPS in __Network & Internet__ 
+    2. **Edit** DNS assignment 
+    3. **Choose** DNS over HTTPS __on(manual template)__ 
+    4. **Set** DNS over https template __https://dns.google/dns-query__ as we are using google DNS servers 
 
 ### 12. Test the anti fingerprinting framework in each of Your PCs
 1. THREE APPROACHES of DEVICE/BROWSER FINGERPRINTING 
