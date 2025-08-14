@@ -45,7 +45,9 @@
    1. ```sudo apt-get install bind9 bind9utils dnsutils```
    2. ```sudo nano ~/CDN_antifingerprinting/etc/bind/named.conf.options```
    3. **Line3:** ```10.42.0.0/24;``` *Change NUC LAN interface IP subnetwork to match your configuration*
-   4. ```sudo ~/CDN_antifingerprinting/etc/bind/named.conf.options /etc/bind/```
+   4. **Line20:** ```listen-on-v6 { fe80::e25f:59e2:e2ff:83bc; };``` *Change NUC LAN interface IPv6 address to match your configuration*
+   5. **Line20:** ```listen-on { 10.42.0.1; };``` *Change NUC LAN interface IP address to match your configuration*
+   6. ```sudo ~/CDN_antifingerprinting/etc/bind/named.conf.options /etc/bind/```
   
 ### 3. Install SQUID caching server in NUC
    1. ```sudo apt-get install squid```
