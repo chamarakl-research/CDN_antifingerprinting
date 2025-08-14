@@ -48,6 +48,11 @@
    4. **Line20:** ```listen-on-v6 { fe80::e25f:59e2:e2ff:83bc; };``` *Change NUC LAN interface IPv6 address to match your configuration*
    5. **Line20:** ```listen-on { 10.42.0.1; };``` *Change NUC LAN interface IP address to match your configuration*
    6. ```sudo ~/CDN_antifingerprinting/etc/bind/named.conf.options /etc/bind/```
+   7. ```sudo apt-get install dnsmasq```
+   8. ```sudo systemctl disable dnsmasq```
+   9. ```sudo systemctl stop dnsmasq```
+   10. ```sudo netstat -nap | grep 53``` *Find process ID (PID) of dnsmasq and kill the process*
+   11. ```sudo kill -9 <process ID of dnsmasq```
   
 ### 3. Install SQUID caching server in NUC
    1. ```sudo apt-get install squid```
