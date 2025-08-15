@@ -195,6 +195,8 @@
     5. **Edit** DNS assignment *Alternate DNS* ```1.1.1.1```
     6. **Choose** DNS over HTTPS __on(manual template)__
     7. **Set** DNS over https template __https://security.cloudflare-dns.com/dns-query__ as we are using cloudfare DNS servers
+4. **Setting Proxy Servers address**
+    1. Set the following as the Proxy servers ```http: 10.42.0.1:80``` and ```https: 10.42.0.1:443``` and ```ftp: 10.42.0.1:3128``` and ```socks: 10.42.0.1:8118```
 
 ### 12. Test the anti fingerprinting framework in each of Your PCs
 1. THREE APPROACHES of DEVICE/BROWSER FINGERPRINTING 
