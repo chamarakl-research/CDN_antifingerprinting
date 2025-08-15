@@ -220,6 +220,6 @@ A. To enable windows update you must bypass the CDN antifingerprinting server. T
 1. As a Sri Lankan, we have always noticed two observations which I have heard from various freinds and family members:
    1. Typical download monthly quota assigned finishes quickly and typically a user requires around 80GB of traffic
    2. The internet speed in Sri Lanka is very low, specially mobile download 
-2. You will find the proposed Anti fingerprinting framework resolves both issues. I am currently using less amount of internet traffic as shown by my Mydialog App and I can achieve 15Mbps speed in the 4G network when tested with fast.com. In Sri Lanka I have never seen anything higher than 6Mpbs.
+2. You will find the proposed Anti fingerprinting framework resolves both issues. I am currently using less amount of internet traffic as shown by my Mydialog App and I can achieve 15Mbps speed in the 4G network when tested with fast.com (Need to get the second reading from fast.com). In Sri Lanka I have never seen anything higher than 6Mpbs.
 3. I will keep interpretation open, but I can assure that this debacale has nothing to do with the Sri Lankan goverment or any neighbouring country. 
   
