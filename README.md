@@ -216,7 +216,7 @@
 A. To enable windows update you must bypass the CDN antifingerprinting server. This done by adding the following ip addresses in the proxy exception list in "internet options"
     1. *.windowsupdate.com; *.microsoft.com; *.windows.com
 
-### Advantages of Anti fingerprinting framework###
+### Advantages of Anti fingerprinting framework
 1. As a Sri Lankan, we have always noticed two observations which I have heard from various freinds and family members:
    1. Typical download monthly quota assigned finishes quickly and typically a user requires around 80GB of traffic
    2. The internet speed in Sri Lanka is very low, specially mobile download 
