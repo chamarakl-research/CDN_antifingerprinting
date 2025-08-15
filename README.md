@@ -1,6 +1,6 @@
 # Content Delivery Network (CDN) as device/browser Anti fingerprinter 
 
-![AntiFP_arch](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC4.jpg "CDN")
+![AntiFP_arch](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_NUC6.jpg "CDN")
 
 ### Anti fingerprinting framework system components  
 
@@ -208,7 +208,7 @@
          1. **Get fingerprint from all your PCs and the fingerprint will be same** *https://fingerprintjs.github.io/fingerprintjs/*
          2. It seems anti fingerprinting framework is irritating some, HA HA HA
 
-![AntiFP_res](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_Results6.jpg "CDN")
+![AntiFP_res](https://github.com/chamarakl-research/CDN_antifingerprinting/blob/main/AntiFP_Results7.jpg "CDN")
 
 ### Check your fingerprint in https://amiunique.org/fingerprint and refresh the page about after 10 minitues to see whether another unique fingerprint is genereated for your device/browser
 1. **if the value "unique among fingerprints" is changing means a random fingerprint is genereated**
